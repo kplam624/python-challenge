@@ -15,8 +15,7 @@ with open(csvpath) as csvfile:
 #Counts the months in the csv
     for rows in csvreader:
 ## To see the set        print(rows[1])
-        months += 1
-print("Total Months:", months)        
+        months += 1     
 
 #Appends the profit/loss values to the new list
         total_pl.append(rows[1])
@@ -25,10 +24,14 @@ print("Total Months:", months)
     total_pl.pop(0)
     for change in total_pl:
         total += int(change)
+    last = len(total_pl)-1
+    avg_change = (int(total_pl[last]) - int(total_pl[0]))/months
+print("Total Months:", months)   
 print(f"Total: ${total}")
+#print(total_pl)
+#print"%8.2f" %(avg_change))
+#print("Hi.")
 
-print("Hi.")
-
-print("Average Change: ")
-print("Greatest Increase in Profits: ")
-print("Greatest Decrease in Profits: ")
+print(f"Average Change: ${avg_change:.2f}")
+#print("Greatest Increase in Profits: ")
+#print("Greatest Decrease in Profits: ")
