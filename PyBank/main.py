@@ -38,8 +38,9 @@ with open(csvpath) as csvfile:
 #Difference of the last month value and first month value divided by the total months
     avg_change = (int(total_pl[last]) - int(total_pl[0]))/months
 
-##Attempt to find the greatest changes
-    big_l.append(total_pl[0])    
+#Find the changes and inserts them into a new list
+    big_l.append(total_pl[0])
+    big = 0    
     for i in range(len(total_pl)-1):
         big_l.append(int(total_pl[i+1]) - int(total_pl[i]))
 
