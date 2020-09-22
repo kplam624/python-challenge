@@ -26,7 +26,7 @@ with open(csvpath) as csvfile:
 #Appends the profit/loss values to the new list
         total_pl.append(rows[1])
 #Also appends the month to the new list
-        prof_mon.append(rows)
+##        prof_mon.append(rows)
 #Find the total amount of profit and losses
 #Removes the header and adds up the changes
     total_pl.pop(0)
@@ -41,7 +41,7 @@ with open(csvpath) as csvfile:
 ##Attempt to find the greatest changes
     big_l.append(total_pl[0])    
     for i in range(len(total_pl)-1):
-        big_l = [total_pl[i+1] - total_pl[i]]
+        big_l.append(int(total_pl[i+1]) - int(total_pl[i]))
 
 
 #prints the rest of the stuff
@@ -51,5 +51,5 @@ print(f"Average Change: ${avg_change:.2f}")
 #print("Greatest Increase in Profits: ")
 #print("Greatest Decrease in Profits: ")
 
-print(big)
+print(len(big_l))
 ##print("Hi.")
