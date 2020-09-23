@@ -5,6 +5,7 @@ count = 0
 candidate = []
 cand_dic = {}
 csvpath = os.path.join('..','Resources','election_data.csv')
+
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
@@ -16,10 +17,9 @@ with open(csvpath) as csvfile:
         else:
             continue
 
-cand_dic["Candidate Name"] = candidate
+for i in range(len(candidate)):
+    cand_dic[f"Candidate Name {i+1}"] = candidate[i]
 
 
-
-
-print(cand_dic)
 print(count)
+print(cand_dic)
