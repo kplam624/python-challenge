@@ -12,14 +12,11 @@ total_pl = []
 big_l = []
 prof_mon = []
 
-
-#Header of the Financial Analysis
-print("Financial Analysis")
-print("-------------------------")
-
 #Open CSV and read
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
 #Counts the months in the csv
     for rows in csvreader:
         months += 1     
@@ -56,6 +53,9 @@ with open(csvpath) as csvfile:
         else:
             continue
 
+#Header of the Financial Analysis
+print("Financial Analysis")
+print("-------------------------")
 
 #prints the rest of the stuff
 print("Total Months:", months)   
