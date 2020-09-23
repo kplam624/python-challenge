@@ -2,7 +2,8 @@ import os
 import csv
 
 csvpath = os.path.join('..','Resources','budget_data.csv')
-months = -1
+
+months = 0
 total = 0
 big = 0
 small = 0
@@ -26,15 +27,15 @@ with open(csvpath) as csvfile:
         prof_mon.append(rows[0])
 #Find the total amount of profit and losses
 #Removes the header and adds up the changes
-    total_pl.pop(0)
+#    total_pl.pop(0)
     for change in total_pl:
         total += int(change)
 #Finds the last value of the list    
     last = len(total_pl)-1
 
 #Average change Calculation
-#Difference of the last month value and first month value divided by the total months
-    avg_change = (int(total_pl[last]) - int(total_pl[0]))/months
+#Difference of the last month value and first month value divided by the changes(month -1)
+    avg_change = (int(total_pl[last]) - int(total_pl[0]))/(months-1)
 
 #Find the changes and inserts them into a new list
     big_l.append(total_pl[0])
@@ -46,10 +47,10 @@ with open(csvpath) as csvfile:
         num = big_l[i]
         if int(num) > big:
             big = int(num)
-            inc = i+1
+            inc = i
         elif int(num) < small:
             small = int(num)
-            dec = i+1
+            dec = i
         else:
             continue
 
