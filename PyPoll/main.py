@@ -2,12 +2,12 @@ import os
 import csv
 
 count = 0
-votecount1 = 0
 
 candidate = []
 votecount = [0,0,0,0]
 cand_dic = {}
 cand_vote = {}
+cand_percent = {}
 
 csvpath = os.path.join('..','Resources','election_data.csv')
 
@@ -25,14 +25,21 @@ with open(csvpath) as csvfile:
                 votecount[i] += 1
 
 for i in range(len(candidate)):
-    cand_dic[f"Candidate Name {i+1}"] = candidate[i]
-    cand_vote[f"Candidate Name {i+1}"] = votecount[i]
+    cand_dic[f"Candidate Name {i}"] = candidate[i]
+    cand_vote[f"Candidate Name {i}"] = votecount[i]
+    cand_percent[f"Candidate Name {i}"] = cand_vote[f"Candidate Name {i}"] / count
     
-
 for i in range(len(candidate)):
-    print(cand_dic[f"Candidate Name {i+1}"])
-    print(cand_vote[f"Candidate Name {i+1}"])
+    print(cand_percent[f"Candidate Name {i}"])
 
-## for i in range(len(votecount)):
-print(votecount)
-#print(count)
+# print("Election Results")
+# print("----------------------------------")
+# print(f"Total Votes: {count}")
+# print("----------------------------------")
+# for i in range(len(candidate)):
+#     print(f"{cand_dic[f'Candidate Name {i+1}']}: damn {cand_vote[f'Candidate Name {i+1}']}")
+# print("----------------------------------")
+# print("Winner: ")
+# print("----------------------------------")
+##print(votecount)
+##print(count)
