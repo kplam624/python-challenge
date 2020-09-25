@@ -7,6 +7,8 @@ votecount1 = 0
 candidate = []
 votecount = [0,0,0,0]
 cand_dic = {}
+cand_vote = {}
+
 csvpath = os.path.join('..','Resources','election_data.csv')
 
 with open(csvpath) as csvfile:
@@ -17,20 +19,20 @@ with open(csvpath) as csvfile:
         count += 1
         if rows[2] not in candidate:
             candidate.append(rows[2])
-            
-    for rows in csvreader:        
-            for i in range(len(candidate)):
-                if rows[2] == candidate[i]:
-                    votecount[i] +=1
-
+        
+        for i in range(len(candidate)):
+            if rows[2] == candidate[i]:
+                votecount[i] += 1
 
 for i in range(len(candidate)):
     cand_dic[f"Candidate Name {i+1}"] = candidate[i]
-
+    cand_vote[f"Candidate Name {i+1}"] = votecount[i]
+    
 
 for i in range(len(candidate)):
     print(cand_dic[f"Candidate Name {i+1}"])
+    print(cand_vote[f"Candidate Name {i+1}"])
 
-for i in range(len(votecount)):
-    print(votecount)
+## for i in range(len(votecount)):
+print(votecount)
 #print(count)
