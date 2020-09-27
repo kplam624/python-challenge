@@ -56,7 +56,7 @@ for i in range(len(candidate)-1):
        winner = f"Candidate Name {i+1}"
 
 
-#Output, the analysis of the result
+#Output, Summary of the result
 print("Election Results")
 print("----------------------------------")
 print(f"Total Votes: {count}")

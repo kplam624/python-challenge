@@ -1,17 +1,20 @@
+#Import dependancies
 import os
 import csv
 
-csvpath = os.path.join('..','Resources','budget_data.csv')
-
+#Set variables to initial values
 months = 0
 total = 0
 big = 0
 small = 0
 
-#Creating a few lists
+#Creates lists to store values
 total_pl = []
 big_l = []
 prof_mon = []
+
+#Calls for the csv file
+csvpath = os.path.join('..','Resources','budget_data.csv')
 
 #Open CSV and read
 with open(csvpath) as csvfile:
@@ -21,13 +24,17 @@ with open(csvpath) as csvfile:
 #Counts the months in the csv
     for rows in csvreader:
         months += 1     
+
 #Appends the profit/loss values to the new list
         total_pl.append(rows[1])
+
 #Also appends the month to the new list
         prof_mon.append(rows[0])
+
 #Find the total amount of profit and losses
     for change in total_pl:
         total += int(change)
+
 #Finds the last value of the list    
     last = len(total_pl)-1
 
@@ -35,11 +42,12 @@ with open(csvpath) as csvfile:
 #Difference of the last month value and first month value divided by the changes(month - 1)
     avg_change = (int(total_pl[last]) - int(total_pl[0]))/(months-1)
 
-#Find the changes and inserts them into a new list
+#Find the changes and appends them into the new list
     big_l.append(total_pl[0])
     big = 0    
     for i in range(len(total_pl)-1):
         big_l.append(int(total_pl[i+1]) - int(total_pl[i]))
+
 #Does a comparison to find the greatest increase and greatest decrease    
     for i in range(len(total_pl)):
         num = big_l[i]
@@ -64,11 +72,9 @@ mainfile.write(f"Greatest Increase in Profits: {prof_mon[inc]} (${big})\n")
 mainfile.write(f"Greatest Decrease in Profits:  {prof_mon[dec]} (${small})\n")
 mainfile.close()
 
-#Header of the Financial Analysis
+#Output, Financial Analysis
 print("Financial Analysis")
 print("---------------------------")
-
-#prints the rest of the stuff
 print(f"Total Months: {months}")   
 print(f"Total: ${total}")
 print(f"Average Change: ${avg_change:.2f}")
