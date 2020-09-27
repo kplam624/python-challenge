@@ -29,13 +29,15 @@ for i in range(len(candidate)):
     cand_vote[f"Candidate Name {i}"] = votecount[i]
     cand_percent[f"Candidate Name {i}"] = (cand_vote[f"Candidate Name {i}"] / count) * 100
 
-winner = Candidate 0
-for i in range(len(candidate)-1):
-    if cand_vote[f"Candidate{i+1}"] > cand_vote[f"Candidate Name {i}"]:
-        winner = f"Candidate{i+1}"
 
-for i in range(len(candidate)):
-    print(round(cand_percent[f"Candidate Name {i}"],3))
+winner = "Candidate Name 0"
+for i in range(len(candidate)-1):
+   if cand_vote[f"Candidate Name {i+1}"] > cand_vote[f"Candidate Name {i}"]:
+       winner = f"Candidate Name {i+1}"
+
+# for i in range(len(candidate)):
+#     print(round(cand_percent[f"Candidate Name {i}"],3))
+
 
 # print("Election Results")
 # print("----------------------------------")
@@ -44,7 +46,5 @@ for i in range(len(candidate)):
 # for i in range(len(candidate)):
 #     print(f"{cand_dic[f'Candidate Name {i+1}']}: damn {cand_vote[f'Candidate Name {i+1}']}")
 # print("----------------------------------")
-# print("Winner: ")
+# print(f"Winner: {cand_dic[winner]}")
 # print("----------------------------------")
-##print(votecount)
-##print(count)
