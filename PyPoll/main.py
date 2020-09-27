@@ -35,16 +35,28 @@ for i in range(len(candidate)-1):
    if cand_vote[f"Candidate Name {i+1}"] > cand_vote[f"Candidate Name {i}"]:
        winner = f"Candidate Name {i+1}"
 
-## for i in range(len(candidate)):
-##     print(f'{cand_percent[f"Candidate Name {i}"]:.3f}%')
 
 
-print("Election Results")
-print("----------------------------------")
-print(f"Total Votes: {count}")
-print("----------------------------------")
+# print("Election Results")
+# print("----------------------------------")
+# print(f"Total Votes: {count}")
+# print("----------------------------------")
+# for i in range(len(candidate)):
+#     print(f"{cand_dic[f'Candidate Name {i}']}: {cand_percent[f'Candidate Name {i}']:.3f}% ({cand_vote[f'Candidate Name {i}']})")
+# print("----------------------------------")
+# print(f"Winner: {cand_dic[winner]}")
+# print("----------------------------------")
+
+mainfile = open("main.txt","w")
+
+mainfile.write("Election Results \n")
+mainfile.write("---------------------------------- \n")
+mainfile.write(f"Total Votes: {count} \n")
+mainfile.write("---------------------------------- \n")
 for i in range(len(candidate)):
-    print(f"{cand_dic[f'Candidate Name {i}']}: {cand_percent[f'Candidate Name {i}']:.3f}% ({cand_vote[f'Candidate Name {i}']})")
-print("----------------------------------")
-print(f"Winner: {cand_dic[winner]}")
-print("----------------------------------")
+    mainfile.write(f"{cand_dic[f'Candidate Name {i}']}: {cand_percent[f'Candidate Name {i}']:.3f}% ({cand_vote[f'Candidate Name {i}']}) \n")
+mainfile.write("----------------------------------\n")
+mainfile.write(f"Winner: {cand_dic[winner]} \n")
+mainfile.write("---------------------------------- \n")
+
+mainfile.close()
