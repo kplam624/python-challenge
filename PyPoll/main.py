@@ -27,10 +27,15 @@ with open(csvpath) as csvfile:
 for i in range(len(candidate)):
     cand_dic[f"Candidate Name {i}"] = candidate[i]
     cand_vote[f"Candidate Name {i}"] = votecount[i]
-    cand_percent[f"Candidate Name {i}"] = cand_vote[f"Candidate Name {i}"] / count
-    
+    cand_percent[f"Candidate Name {i}"] = (cand_vote[f"Candidate Name {i}"] / count) * 100
+
+winner = Candidate 0
+for i in range(len(candidate)-1):
+    if cand_vote[f"Candidate{i+1}"] > cand_vote[f"Candidate Name {i}"]:
+        winner = f"Candidate{i+1}"
+
 for i in range(len(candidate)):
-    print(cand_percent[f"Candidate Name {i}"])
+    print(round(cand_percent[f"Candidate Name {i}"],3))
 
 # print("Election Results")
 # print("----------------------------------")
