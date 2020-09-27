@@ -35,16 +35,16 @@ for i in range(len(candidate)-1):
    if cand_vote[f"Candidate Name {i+1}"] > cand_vote[f"Candidate Name {i}"]:
        winner = f"Candidate Name {i+1}"
 
-# for i in range(len(candidate)):
-#     print(round(cand_percent[f"Candidate Name {i}"],3))
+## for i in range(len(candidate)):
+##     print(f'{cand_percent[f"Candidate Name {i}"]:.3f}%')
 
 
-# print("Election Results")
-# print("----------------------------------")
-# print(f"Total Votes: {count}")
-# print("----------------------------------")
-# for i in range(len(candidate)):
-#     print(f"{cand_dic[f'Candidate Name {i+1}']}: damn {cand_vote[f'Candidate Name {i+1}']}")
-# print("----------------------------------")
-# print(f"Winner: {cand_dic[winner]}")
-# print("----------------------------------")
+print("Election Results")
+print("----------------------------------")
+print(f"Total Votes: {count}")
+print("----------------------------------")
+for i in range(len(candidate)):
+    print(f"{cand_dic[f'Candidate Name {i}']}: {cand_percent[f'Candidate Name {i}']:.3f}% ({cand_vote[f'Candidate Name {i}']})")
+print("----------------------------------")
+print(f"Winner: {cand_dic[winner]}")
+print("----------------------------------")
