@@ -14,11 +14,11 @@ Within the file pybank and pypoll will hold the scripts to complete the above go
 Pybank will analyze budget_data.csv. 
 
 * The script will read the csv file and will show the following:
- * Total Months
- * Total
- * The Average Change
- * Greatest Increase
- * Greatest Decrease
+  * Total Months
+  * Total
+  * The Average Change
+  * Greatest Increase
+  * Greatest Decrease
 
 The total months will analyze the total months that is contained in the csv.
 
@@ -37,11 +37,11 @@ With the information above, the script will create a financial report showing th
 Pypoll will analyze election_data.csv.
 
 * The script will read the csv file and show the following:
- * Total Votes
- * The Candidates that were on the ballot
- * The Amount of votes that the candidates recieve
- * The percentage of votes that the candidates votes amount to
- * The winner of the election
+  * Total Votes
+  * The Candidates that were on the ballot
+  * The Amount of votes that the candidates recieve
+  * The percentage of votes that the candidates votes amount to
+  * The winner of the election
 
 The total votes will look at how many votes were casted in the entire csv
 
