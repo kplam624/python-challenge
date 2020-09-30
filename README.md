@@ -52,3 +52,7 @@ To calculate the percentage, the amount of votes casted for the candidate will b
 Finally, the winner is found through a comparison between the amount of votes recieved by each candidate. The person with the most votes win the election.
 
 The script will then present the results of the election and copy the results to a new .txt file.
+
+## Text Files
+
+As said before both of the scripts will create two .txt files. Both of the files will be found in their respective folders. For example, the pypoll script will run and the .txt file will be written in the pypoll folder. This is the same for pybank script.
